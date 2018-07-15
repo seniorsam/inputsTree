@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>inputs Tree jQuery Plugin</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<style>
+		.inTreeNode {
+		    padding: 20px 15px;
+		    border: solid #afafaf 1px;
+		    margin-top: 20px;
+		    overflow: hidden;
+		    background-color: #f9f9f9;
+		    border-radius: 5px;
+		}
+
+		.inTreeInputWrapper {
+		    margin-bottom: 10px;
+		    margin-right: 5px;
+		    display: inline-block;
+		}
+
+		div.inTreeNodeControllers button {
+		    margin-right: 9px;
+		}
+	</style>
+</head>
+<body>
+	
+	<br>
+	<div class="container">
+			<div id="inputs_tree_action_btns"></div>
+			<div id="inputs_tree_main_controllers"></div>
+			<div id="inputs_tree_holder"></div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="js/inputsTree.js"></script>
+	<script src="js/inputsTreeOptions.js"></script>
+	<script>
+		window.inputsTree( inputsTreeComponenets );
+	</script>
+</body>
+</html>

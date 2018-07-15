@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Inputs Tree Version 1.0 Documenation</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<style>
+		
+		.logo{
+			width: 150px;
+			margin: 0 auto;
+		}
+
+		.logo img{
+			width: 100%;
+		}
+
+		.app-readme{
+		    padding: 10px 10px 10px 25px;
+		    margin-top: 20px;
+		    margin-bottom: 20px;
+		}
+
+		.app-readme-s1{
+			border-left: 2px solid #5a7f00;
+		        background-color: #faffef;
+		}	
+
+		.app-readme-s2{
+		    border-left: 2px solid #636363;
+		    background-color: #f9f9f9;
+		}	
+
+
+		h1{
+			font-size: 2em;
+		}
+
+		h2{
+			font-size: 1.5em;
+		}
+
+		h3{
+			font-size: 1.3em;
+		}
+
+		p{
+			font-size: 1em; 
+		}
+
+		ul{
+			padding-left: 0;
+		}
+
+		ul li{
+			list-style: none;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="logo">
+			<img src="imgs/inputs_tree_logo.png" alt="logo">
+		</div>
+		
+		<div class="app-readme app-readme-s2">
+			<i>Useful Links</i><br>
+			<a href="#">Checkout The Code at Github</a><br>
+			<a href="example">usage example</a>
+		</div>
+		<div class="app-readme app-readme-s1">
+			<h1>Inputs Tree Version 1.0 Documenation</h1>
+			<h2>Introduction</h2>
+			<p>
+				hello everyone my name is sameh and i'm a web developer introuducing to you the inputs tree application. <br>
+				this application gives you the ability to make infinite inputs tree and generate the corresponding json data for it and then send this data along with ajax post request <br>
+				i hope you like it :D
+			</p>
+			<h2>The Mechanism</h2>
+			<p>
+				The basic component in the inputs Tree app is the branch and <b> the branch is a combination of inputs and controllers buttons </b>.<br>
+				<br><br>
+				<i><b>branch sample</b></i>
+				<img src="imgs/branch.png" alt="empty" class="img-responsive"><br>
+				each branch name, inputs and controllers get identified in branches in the object that get passed to the inputTree Function that start the app. <br>
+				<b>and branch name</b> is used to call the branch when you click the controller button <br>
+				<b>for example</b> in the following code when you click add unit button it calls branch one and append it
+				 <br>
+				 <code>
+					mainControllersBtns : [
+						{
+							text:"Add Unit",
+							control:"branchOne"
+						}
+					]
+				</code>
+				<br><br>
+				 branch can be processed as a main parent for other branches if you assigned it's name in the main controllers buttons <br>
+				<code>
+					mainControllersBtns : [
+						{
+							text:"Add Unit",
+							control:"branchOne"
+						}
+					]
+				</code><br>
+				 <b><u>OR</u></b> as a children to other branches if you assigned it's name in any branch sub controllers buttons inside the branch options.<br>
+				<code>
+					subsControllersBtns:[
+										{
+											text:"Add Form One",
+											control:"branchOne"
+										},
+										{
+											text:"Add Form Two",
+											control:"branchTwo"
+										}
+							]
+				</code><br><br>
+				branches and controllers in this app are used according to the way you idenify it, you can configure each branch inputs and sub controllers as you like it to be.
+			</p>
+			<h2>Why you will like inputs tree?</h2>
+			<ul>
+				<li>it's easy to install</li>
+				<li>you can make infinite inputs tree using this app.</li>
+				<li>you can generate full json data corresponding to the tree you created.</li>
+				<li>you can send the generated json data along with ajax post request.</li>
+			</ul>
+			<h2>How To Use?</h2>
+			<ul>
+				<li>
+					<b><i>1- Html markup</i></b><br>
+					<code>
+						&lt;div id="inputs_tree_action_btns"&gt;&lt;/div&gt; <br>
+						&lt;div id="inputs_tree_main_controllers"&gt;&lt;/div&gt; <br>
+						&lt;div id="inputs_tree_holder"&gt;&lt;/div&gt;
+					</code>
+				</li><br>
+				<li>
+					<b><i>2- Call the app files</i></b><br>
+					<code>
+						&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"&gt;
+						&lt;/script&gt; <br>
+						&lt;script src="js/inputsTree.js"&gt&lt;/script&gt; <br>
+						&lt;script src="js/inputsTreeOptions.js"&gt;&lt;/script&gt;
+					</code>
+				</li><br>
+				<li>
+					<b>3- Configure "js/inputsTreeOptions.js" according to your needs</b><br>
+					<code>
+						in this documentaion you will find the options table that explain each option in this file
+					</code>
+				</li><br>
+				<li>
+					<b>4- Call inputsTree function and pass the component object in order to start the app </b></b><br>
+					<code>
+							&lt;script&gt;window.inputsTree( inputsTreeComponenets );&lt;/script&gt;					
+					</code>
+				</li>
+			</ul>
+			<h2>General notes about The Options Table</h2>
+			<p>
+				<ul>
+					<li>
+						<b>1-</b> "options" and "DataSourceUrl" in the following options table are two diffrent way for producing select options data which means you have to assign one option only
+					</li>
+					<li>
+						<b>2-</b> data that sent with ajax post request being sent in array with key 'it_data'. <br>
+						so to handle this data in the server side file you have to call the array with key data. <br>
+						<b>for example in php in order to print the data</b><br>
+						<code>
+							print_r( $_POST['it_data'] );
+						</code>
+					</li>
+				</ul>
+			</p>
+		</div>
+		
+		<div class="app-readme app-readme-s1">
+			<h2 style="margin-top:12px;">Inputs Tree Options Table</h2>
+		</div>
+		<table class="table table-bordered">
+		   <thead>
+		      <tr>
+		         <th>#</th>
+		         <th>Name</th>
+		         <th>description</th>
+		         <th>Possible Value</th>
+		         <th>Example</th>
+		         <th>Parent</th>
+		         <th>Required</th>
+		      </tr>
+		   </thead>
+		   <tbody>
+		      <tr>
+		         <th scope="row">1</th>
+		         <td>inputsTreeControllersDiv</td>
+		         <td>the html tag that holds the main buttons for app</td>
+		         <td>$("html element")</td>
+		         <td>inputsTreeControllersDiv:$("#inputs_tree_btns")</td>
+		         <td>Main Object</td>
+		         <td>Yes</td>
+		      </tr>
+		      <tr>
+		         <th scope="row">2</th>
+		         <td>inputsTreeActionControllersDiv</td>
+		         <td>the html tag that holds the action buttons which is responsible for generate json and send post request with the generated json to the provided url.</td>
+		         <td>$("html element")</td>
+		         <td>inputsTreeActionControllersDiv:$("#inputs_tree_action_btns")</td>
+		         <td>Main Object</td>
+		         <td>Yes</td>
+		      </tr>
+		      <tr>
+		         <th scope="row">3</th>
+		         <td>inputsTreeDiv</td>
+		         <td>the html tag that holds the app appended forms that get appended when you hit add buttons for the app.</td>
+		         <td>$("html element")</td>
+		         <td>inputsTreeDiv:$("#inputs_tree_holder")</td>
+		         <td>Main Object</td>
+		         <td>Yes</td>
+		      </tr>
+		      <tr style="background-color:#eee">
+		         <th scope="row">4</th>
+		         <td>mainControllersBtns</td>
+		         <td>hold an array of objects each object represent a main button in the app and the main buttons in the app are these buttons that the initial view of the app starts with them.</td>
+		         <td>array of objects</td>
+		         <td>[{text:"Add Unit",control:"branchOne"}]</td>
+		         <td>Main Object</td>
+		         <td>Yes at least one button</td>
+		      </tr>
+		      <tr style="background-color:#eee">
+		         <th scope="row">5</th>
+		         <td>text</td>
+		         <td>represent main controller button text.</td>
+		         <td>string</td>
+		         <td>text:"Add Unit"</td>
+		         <td>mainControllersBtns</td>
+		         <td>Yes</td>
+		      </tr>
+		      <tr style="background-color:#eee">
+		         <th scope="row">6</th>
+		         <td>control</td>
+		         <td>represent the branch name that the button control and <b>a branch is a combination of inputs and buttons together</b>.</td>
+		         <td>branch name</td>
+		         <td>control:"branchOne"</td>
+		         <td>mainControllersBtns</td>
+		         <td>Yes</td>
+		      </tr>
+		      <tr>
+		         <th scope="row">7</th>
+		         <td>branches</td>
+		         <td>contains objects each object assigned with key represent the branch name that used to control this branch <b>and the branch name dosen't have to be named branchOne Or branchTwo you can name it with any other name and assign this name in the buttons "control" option.</b></td>
+		         <td>objects each object assigned with key</td>
+		         <td>branches:{branchOne:{}, branchTwo:{}}</td>
+		         <td>Main Object</td>
+		         <td>Yes</td>
+		      </tr>
+		      <tr>
+		         <th scope="row">8</th>
+		         <td>inputs</td>
+		         <td>contains array of objects each object represent form input options</td>
+		         <td>array of objects.</td>
+		         <td>branches:{branchOne:[{type : "text",label : "Type Your Age",}]}</td>
+		         <td>branch</td>
+		         <td>Yes</td>
+		      </tr>
+		      <tr>
+		         <th scope="row">9</th>
+		         <td>type</td>
+		         <td>represent form input type</td>
+		         <td>string</td>
+		         <td>type : "select"</td>
+		         <td>inputs</td>
+		         <td>Yes</td>
+		      </tr>
+		      <tr>
+		         <th scope="row">10</th>
+		         <td>label</td>
+		         <td>represent form input type</td>
+		         <td>string</td>
+		         <td>label : "Type Your City"</td>
+		         <td>inputs</td>
+		         <td>No</td>
+		      </tr>
+		      <tr>
+		         <th scope="row">11</th>
+		         <td>placeholder</td>
+		         <td>represent form input placeholder</td>
+		         <td>string</td>
+		         <td>placeholder : "Your age"</td>
+		         <td>inputs</td>
+		         <td>No</td>
+		      </tr>
+		      <tr>
+		         <th scope="row">12</th>
+		         <td>name</td>
+		         <td>represent form input name</td>
+		         <td>string</td>
+		         <td>name : "age",</td>
+		         <td>inputs</td>
+		         <td>Yes</td>
+		      </tr>
+		      <tr>
+		         <th scope="row">13</th>
+		         <td>id</td>
+		         <td>represent form input id</td>
+		         <td>string</td>
+		         <td>id : "age"</td>
+		         <td>inputs</td>
+		         <td>No</td>
+		      </tr>
+		      <tr>
+		         <th scope="row">14</th>
+		         <td>options <br> <i style="color:blue">(use this if input type is select only)</i></td>
+		         <td>contains an array of objects each object represent option in the select box.</td>
+		         <td>array of objects</td>
+		         <td>options :[{"id" : "1","text" : "cairo",},{"id" : "2","text" : "giza",}]</td>
+		         <td>inputs</td>
+		         <td>No</td>
+		      </tr>
+		      <tr>
+		         <th scope="row">15</th>
+		         <td>DataSourceUrl <br> <i style="color:blue">(use this if input type is select only)</td>
+		         <td>url to file that will return json data represent the select box options values</td>
+		         <td>url</td>
+		         <td>DataSourceUrl : "json_options.json"</td>
+		         <td>inputs</td>
+		         <td>No but if presented you will make the app get values from this url not from previous "options"</td>
+		      </tr>
+		      <tr>
+		         <th scope="row">16</th>
+		         <td>selectOptionKey <br> <i style="color:blue">(use this if input type is select only)</td>
+		         <td>json object key that present the option value <option value="value"></option></td>
+		         <td>string</td>
+		         <td>selectOptionKey : "id"</td>
+		         <td>inputs</td>
+		         <td>Yes</td>
+		      </tr>
+		      <tr>
+		         <th scope="row">17</th>
+		         <td>selectOptionValue <br> <i style="color:blue">(use this if input type is select only)</td>
+		         <td>json object key that present the option text <option value="value">text</option></td>
+		         <td>string</td>
+		         <td>selectOptionKey : "text"</td>
+		         <td>inputs</td>
+		         <td>Yes</td>
+		      </tr>
+		      <tr style="background-color:#eee">
+		         <th scope="row">18</th>
+		         <td>subsControllersBtns</td>
+		         <td>contains an array of objects each object represent a button inside the branch</td>
+		         <td>array of objects</td>
+		         <td>[{text:"Add Form One",control:"branchOne"},{text:"Add Form Two",control:"branchTwo"}]</td>
+		         <td>branch</td>
+		         <td>Yes</td>
+		      </tr>
+		      <tr style="background-color:#eee">
+		         <th scope="row">19</th>
+		         <td>text</td>
+		         <td>represent controller button text.</td>
+		         <td>string</td>
+		         <td>text:"Add Unit"</td>
+		         <td>subsControllersBtns</td>
+		         <td>Yes</td>
+		      </tr>
+		      <tr style="background-color:#eee">
+		         <th scope="row">20</th>
+		         <td>control</td>
+		         <td>represent the branch name that the button control.</td>
+		         <td>string that represent branch name</td>
+		         <td>control:"branchOne"</td>
+		         <td>subsControllersBtns</td>
+		         <td>Yes</td>
+		      </tr>
+		      <tr>
+		         <th scope="row">21</th>
+		         <td>jsonGenerateBtn</td>
+		         <td>control the visibility of button that generate json data.</td>
+		         <td>true or false</td>
+		         <td>true</td>
+		         <td>Main Object</td>
+		         <td>Yes</td>
+		      </tr>
+		      <tr>
+		         <th scope="row">22</th>
+		         <td>jsonGenerateBtnText</td>
+		         <td>json generate button text</td>
+		         <td>string</td>
+		         <td>Generate Json</td>
+		         <td>Main Object</td>
+		         <td>Yes</td>
+		      </tr>
+		      <tr>
+		         <th scope="row">23</th>
+		         <td>jsonGenerateShowMethod</td>
+		         <td>after you click generate json button how you want the data to be shown</td>
+		         <td>'log' or 'alert'</td>
+		         <td>alert</td>
+		         <td>Main Object</td>
+		         <td>Yes</td>
+		      </tr>
+		      <tr>
+		         <th scope="row">24</th>
+		         <td>jsonActionBtn</td>
+		         <td>control the visibility of button that do post request and send generated json data with the request.</td>
+		         <td>true or false</td>
+		         <td>true</td>
+		         <td>Main Object</td>
+		         <td>Yes</td>
+		      </tr>
+		      <tr>
+		         <th scope="row">25</th>
+		         <td>jsonActionBtnText</td>
+		         <td>json action button text</td>
+		         <td>string</td>
+		         <td>Ajax Call</td>
+		         <td>Main Object</td>
+		         <td>Yes</td>
+		      </tr>
+		      <tr>
+		         <th scope="row">26</th>
+		         <td>jsonActionUrl</td>
+		         <td>the url that will be used with ajax post request</td>
+		         <td>url</td>
+		         <td>request.php</td>
+		         <td>Main Object</td>
+		         <td>Yes</td>
+		      </tr>
+		   </tbody>
+		</table>
+		<div class="app-readme app-readme-s2">
+			<i>Useful Links</i><br>
+			<a href="#">Checkout The Code at Github</a><br>
+			<a href="example">usage example</a>
+		</div>
+	</div>
+</body>
+</html>
