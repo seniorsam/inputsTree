@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Inputs Tree Version 1.0 Documenation</title>
+	<link rel="icon" type="image/png" href="imgs/inputs_tree_logo.png" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<style>
 		
@@ -66,7 +67,7 @@
 		
 		<div class="app-readme app-readme-s2">
 			<i>Useful Links</i><br>
-			<a href="#">Checkout The Code at Github</a><br>
+			<a href="https://github.com/seniorsam/inputsTree">Checkout The Code at Github</a><br>
 			<a href="example">usage example</a>
 		</div>
 		<div class="app-readme app-readme-s1">
@@ -83,7 +84,7 @@
 				<br><br>
 				<i><b>branch sample</b></i>
 				<img src="imgs/branch.png" alt="empty" class="img-responsive"><br>
-				each branch name, inputs and controllers get identified in branches in the object that get passed to the inputTree Function that start the app. <br>
+				inputs and controllers get identified in branches object inside the full components object that get passed to the <b>inputTree Function which start the whole app</b>. <br>
 				<b>and branch name</b> is used to call the branch when you click the controller button <br>
 				<b>for example</b> in the following code when you click add unit button it calls branch one and append it
 				 <br>
@@ -153,7 +154,7 @@
 					</code>
 				</li><br>
 				<li>
-					<b>4- Call inputsTree function and pass the component object in order to start the app </b></b><br>
+					<b>4- Call inputsTree function and pass the component object in order to start the app </b><br>
 					<code>
 							&lt;script&gt;window.inputsTree( inputsTreeComponenets );&lt;/script&gt;					
 					</code>
@@ -163,11 +164,11 @@
 			<p>
 				<ul>
 					<li>
-						<b>1-</b> "options" and "DataSourceUrl" in the following options table are two diffrent way for producing select options data which means you have to assign one option only
+						<b>1-</b> "options" and "DataSourceUrl" in the following options table are two diffrent ways for producing select options data which means you have to assign only one of them
 					</li>
 					<li>
 						<b>2-</b> data that sent with ajax post request being sent in array with key 'it_data'. <br>
-						so to handle this data in the server side file you have to call the array with key data. <br>
+						so to handle this data in the server side file you have to call the array with key it_data. <br>
 						<b>for example in php in order to print the data</b><br>
 						<code>
 							print_r( $_POST['it_data'] );
@@ -179,6 +180,7 @@
 		
 		<div class="app-readme app-readme-s1">
 			<h2 style="margin-top:12px;">Inputs Tree Options Table</h2>
+			<p>This table explains the options in <b>inputsTreeOptions.js</b> file.</p>
 		</div>
 		<table class="table table-bordered">
 		   <thead>
@@ -198,7 +200,7 @@
 		         <td>inputsTreeControllersDiv</td>
 		         <td>the html tag that holds the main buttons for app</td>
 		         <td>$("html element")</td>
-		         <td>inputsTreeControllersDiv:$("#inputs_tree_btns")</td>
+		         <td><code>inputsTreeControllersDiv:$("#inputs_tree_btns")</code></td>
 		         <td>Main Object</td>
 		         <td>Yes</td>
 		      </tr>
@@ -207,16 +209,16 @@
 		         <td>inputsTreeActionControllersDiv</td>
 		         <td>the html tag that holds the action buttons which is responsible for generate json and send post request with the generated json to the provided url.</td>
 		         <td>$("html element")</td>
-		         <td>inputsTreeActionControllersDiv:$("#inputs_tree_action_btns")</td>
+		         <td><code>inputsTreeActionControllersDiv:$("#inputs_tree_action_btns")</code></td>
 		         <td>Main Object</td>
 		         <td>Yes</td>
 		      </tr>
 		      <tr>
 		         <th scope="row">3</th>
 		         <td>inputsTreeDiv</td>
-		         <td>the html tag that holds the app appended forms that get appended when you hit add buttons for the app.</td>
+		         <td>the html tag that holds the appended branches that get appended when you click controllers buttons.</td>
 		         <td>$("html element")</td>
-		         <td>inputsTreeDiv:$("#inputs_tree_holder")</td>
+		         <td><code>inputsTreeDiv:$("#inputs_tree_holder")</code></td>
 		         <td>Main Object</td>
 		         <td>Yes</td>
 		      </tr>
@@ -225,7 +227,7 @@
 		         <td>mainControllersBtns</td>
 		         <td>hold an array of objects each object represent a main button in the app and the main buttons in the app are these buttons that the initial view of the app starts with them.</td>
 		         <td>array of objects</td>
-		         <td>[{text:"Add Unit",control:"branchOne"}]</td>
+		         <td><code>[{text:"Add Unit",control:"branchOne"}]</code></td>
 		         <td>Main Object</td>
 		         <td>Yes at least one button</td>
 		      </tr>
@@ -234,34 +236,34 @@
 		         <td>text</td>
 		         <td>represent main controller button text.</td>
 		         <td>string</td>
-		         <td>text:"Add Unit"</td>
+		         <td><code>text:"Add Unit"</code></td>
 		         <td>mainControllersBtns</td>
 		         <td>Yes</td>
 		      </tr>
 		      <tr style="background-color:#eee">
 		         <th scope="row">6</th>
 		         <td>control</td>
-		         <td>represent the branch name that the button control and <b>a branch is a combination of inputs and buttons together</b>.</td>
+		         <td>represent the branch name that the button control and <b>a branch is a combination of inputs and controllers together as we discussed earlier</b>.</td>
 		         <td>branch name</td>
-		         <td>control:"branchOne"</td>
+		         <td><code>control:"branchOne"</code></td>
 		         <td>mainControllersBtns</td>
 		         <td>Yes</td>
 		      </tr>
 		      <tr>
 		         <th scope="row">7</th>
 		         <td>branches</td>
-		         <td>contains objects each object assigned with key represent the branch name that used to control this branch <b>and the branch name dosen't have to be named branchOne Or branchTwo you can name it with any other name and assign this name in the buttons "control" option.</b></td>
+		         <td>contains objects each object assigned with key represent the branch name that used to control this branch <b>and the branch name dosen't have to be named branchOne Or branchTwo you can name it with any other name.</b></td>
 		         <td>objects each object assigned with key</td>
-		         <td>branches:{branchOne:{}, branchTwo:{}}</td>
+		         <td><code>branches:{branchOne:{}, branchTwo:{}}</code></td>
 		         <td>Main Object</td>
 		         <td>Yes</td>
 		      </tr>
 		      <tr>
 		         <th scope="row">8</th>
 		         <td>inputs</td>
-		         <td>contains array of objects each object represent form input options</td>
+		         <td>contains array of objects each object represent options schema for one from this branch inputs</td>
 		         <td>array of objects.</td>
-		         <td>branches:{branchOne:[{type : "text",label : "Type Your Age",}]}</td>
+		         <td><code>branches:{branchOne:{<i>inputs:[{type : "text",label : "Type Your Age"},{type : "text",label : "Type Your Age"}]</i>}}</code></td>
 		         <td>branch</td>
 		         <td>Yes</td>
 		      </tr>
@@ -270,7 +272,7 @@
 		         <td>type</td>
 		         <td>represent form input type</td>
 		         <td>string</td>
-		         <td>type : "select"</td>
+		         <td><code>type : "select"</code></td>
 		         <td>inputs</td>
 		         <td>Yes</td>
 		      </tr>
@@ -279,7 +281,7 @@
 		         <td>label</td>
 		         <td>represent form input type</td>
 		         <td>string</td>
-		         <td>label : "Type Your City"</td>
+		         <td><code>label : "Type Your City"</code></td>
 		         <td>inputs</td>
 		         <td>No</td>
 		      </tr>
@@ -288,7 +290,7 @@
 		         <td>placeholder</td>
 		         <td>represent form input placeholder</td>
 		         <td>string</td>
-		         <td>placeholder : "Your age"</td>
+		         <td><code>placeholder : "Your age"</code></td>
 		         <td>inputs</td>
 		         <td>No</td>
 		      </tr>
@@ -297,7 +299,7 @@
 		         <td>name</td>
 		         <td>represent form input name</td>
 		         <td>string</td>
-		         <td>name : "age",</td>
+		         <td><code>name : "age",</code></td>
 		         <td>inputs</td>
 		         <td>Yes</td>
 		      </tr>
@@ -306,7 +308,7 @@
 		         <td>id</td>
 		         <td>represent form input id</td>
 		         <td>string</td>
-		         <td>id : "age"</td>
+		         <td><code>id : "age"</code></td>
 		         <td>inputs</td>
 		         <td>No</td>
 		      </tr>
@@ -315,43 +317,43 @@
 		         <td>options <br> <i style="color:blue">(use this if input type is select only)</i></td>
 		         <td>contains an array of objects each object represent option in the select box.</td>
 		         <td>array of objects</td>
-		         <td>options :[{"id" : "1","text" : "cairo",},{"id" : "2","text" : "giza",}]</td>
+		         <td><code>options :[{"id" : "1","text" : "cairo",},{"id" : "2","text" : "giza",}]</code></td>
 		         <td>inputs</td>
 		         <td>No</td>
 		      </tr>
 		      <tr>
 		         <th scope="row">15</th>
-		         <td>DataSourceUrl <br> <i style="color:blue">(use this if input type is select only)</td>
+		         <td>DataSourceUrl <br> <i style="color:blue">(use this if input type is select only)</i></td>
 		         <td>url to file that will return json data represent the select box options values</td>
 		         <td>url</td>
-		         <td>DataSourceUrl : "json_options.json"</td>
+		         <td><code>DataSourceUrl : "json_options.json"</code></td>
 		         <td>inputs</td>
 		         <td>No but if presented you will make the app get values from this url not from previous "options"</td>
 		      </tr>
 		      <tr>
 		         <th scope="row">16</th>
-		         <td>selectOptionKey <br> <i style="color:blue">(use this if input type is select only)</td>
+		         <td>selectOptionKey <br> <i style="color:blue">(use this if input type is select only)</i></td>
 		         <td>json object key that present the option value <option value="value"></option></td>
 		         <td>string</td>
-		         <td>selectOptionKey : "id"</td>
+		         <td><code>selectOptionKey : "id"</code></td>
 		         <td>inputs</td>
 		         <td>Yes</td>
 		      </tr>
 		      <tr>
 		         <th scope="row">17</th>
-		         <td>selectOptionValue <br> <i style="color:blue">(use this if input type is select only)</td>
+		         <td>selectOptionValue <br> <i style="color:blue">(use this if input type is select only)</i></td>
 		         <td>json object key that present the option text <option value="value">text</option></td>
 		         <td>string</td>
-		         <td>selectOptionKey : "text"</td>
+		         <td><code>selectOptionKey : "text"</code></td>
 		         <td>inputs</td>
 		         <td>Yes</td>
 		      </tr>
 		      <tr style="background-color:#eee">
 		         <th scope="row">18</th>
 		         <td>subsControllersBtns</td>
-		         <td>contains an array of objects each object represent a button inside the branch</td>
+		         <td>contains an array of objects each object represent a controller inside the branch</td>
 		         <td>array of objects</td>
-		         <td>[{text:"Add Form One",control:"branchOne"},{text:"Add Form Two",control:"branchTwo"}]</td>
+		         <td><code>[{text:"Add Form One",control:"branchOne"},{text:"Add Form Two",control:"branchTwo"}]</code></td>
 		         <td>branch</td>
 		         <td>Yes</td>
 		      </tr>
@@ -360,16 +362,16 @@
 		         <td>text</td>
 		         <td>represent controller button text.</td>
 		         <td>string</td>
-		         <td>text:"Add Unit"</td>
+		         <td><code>text:"Add Unit"</code></td>
 		         <td>subsControllersBtns</td>
 		         <td>Yes</td>
 		      </tr>
 		      <tr style="background-color:#eee">
 		         <th scope="row">20</th>
 		         <td>control</td>
-		         <td>represent the branch name that the button control.</td>
+		         <td>represent the branch name that the controller control.</td>
 		         <td>string that represent branch name</td>
-		         <td>control:"branchOne"</td>
+		         <td><code>control:"branchOne"</code></td>
 		         <td>subsControllersBtns</td>
 		         <td>Yes</td>
 		      </tr>
@@ -378,7 +380,7 @@
 		         <td>jsonGenerateBtn</td>
 		         <td>control the visibility of button that generate json data.</td>
 		         <td>true or false</td>
-		         <td>true</td>
+		         <td><code>jsonGenerateBtn:true</code></td>
 		         <td>Main Object</td>
 		         <td>Yes</td>
 		      </tr>
@@ -387,7 +389,7 @@
 		         <td>jsonGenerateBtnText</td>
 		         <td>json generate button text</td>
 		         <td>string</td>
-		         <td>Generate Json</td>
+		         <td><code>jsonGenerateBtnText:'Generate Json'</code></td>
 		         <td>Main Object</td>
 		         <td>Yes</td>
 		      </tr>
@@ -396,7 +398,7 @@
 		         <td>jsonGenerateShowMethod</td>
 		         <td>after you click generate json button how you want the data to be shown</td>
 		         <td>'log' or 'alert'</td>
-		         <td>alert</td>
+		         <td><code>jsonGenerateShowMethod:'alert'</code></td>
 		         <td>Main Object</td>
 		         <td>Yes</td>
 		      </tr>
@@ -405,7 +407,7 @@
 		         <td>jsonActionBtn</td>
 		         <td>control the visibility of button that do post request and send generated json data with the request.</td>
 		         <td>true or false</td>
-		         <td>true</td>
+		         <td><code>jsonActionBtn:true</code></td>
 		         <td>Main Object</td>
 		         <td>Yes</td>
 		      </tr>
@@ -414,7 +416,7 @@
 		         <td>jsonActionBtnText</td>
 		         <td>json action button text</td>
 		         <td>string</td>
-		         <td>Ajax Call</td>
+		         <td><code>jsonActionBtnText:'Ajax Call'</code></td>
 		         <td>Main Object</td>
 		         <td>Yes</td>
 		      </tr>
@@ -423,7 +425,7 @@
 		         <td>jsonActionUrl</td>
 		         <td>the url that will be used with ajax post request</td>
 		         <td>url</td>
-		         <td>request.php</td>
+		         <td><code>jsonActionUrl:'request.php'</code></td>
 		         <td>Main Object</td>
 		         <td>Yes</td>
 		      </tr>

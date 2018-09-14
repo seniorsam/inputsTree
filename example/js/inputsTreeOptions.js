@@ -117,9 +117,9 @@ var inputsTreeComponenets = {
 		}	
 	},
 
-	jsonGenerateBtn:false,
+	jsonGenerateBtn:true,
 	jsonGenerateBtnText:'Generate Json',
-	jsonGenerateShowMethod:'alert',
+	jsonGenerateShowMethod:'log',
 	jsonActionBtn:false,
 	jsonActionBtnText:'Ajax Call',
 	jsonActionUrl:'request.php'
