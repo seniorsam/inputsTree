@@ -7,7 +7,7 @@ var inputsTreeComponenets = {
 	// application initial view starts with these controllers			
 	mainControllersBtns : [
 		{
-			text:"Add Unit",
+			text:"+ Add Unit",
 			control:"branchOne"
 		}
 	],
@@ -120,7 +120,7 @@ var inputsTreeComponenets = {
 	jsonGenerateBtn:true,
 	jsonGenerateBtnText:'Generate Json',
 	jsonGenerateShowMethod:'log',
-	jsonActionBtn:false,
+	jsonActionBtn:true,
 	jsonActionBtnText:'Ajax Call',
 	jsonActionUrl:'request.php'
 }

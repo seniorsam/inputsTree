@@ -1,0 +1,77 @@
+button{
+	transition:all 150ms;
+}
+
+.inTreeNode {
+		    padding: 20px 15px;
+		    border: 1px solid #dadada;
+		    margin-top: 20px;
+		    overflow: hidden;
+		    background-color: #fff;
+		    border-radius: 3px;
+		    box-shadow: 0 0 2px #ececec;
+}
+
+.inTreeNode input{
+    height: 35px;
+    padding: 5px;
+    border-radius: 3px;
+    border: solid 1px #dadada;
+}
+
+.inTreeInputWrapper {
+    margin-bottom: 10px;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+div.inTreeNodeControllers button {
+    margin-right: 9px;
+}
+
+#inputs_tree_action_btns{
+	background-color: #fff;
+    padding: 8px 0;
+    border-radius: 3px;
+    box-shadow: 0 0 2px #ececec;
+    margin-bottom: 8px;
+}
+#inputs_tree_main_controllers{
+    background-color: #fff;
+    border: 1px solid #dadada;
+    padding: 8px;
+    border-radius: 3px;
+    box-shadow: 0 0 2px #ececec;
+    margin-bottom: 10px;	
+}
+
+.jsonBtn, 
+.actionBtn,
+#inputs_tree_main_controllers button, 
+.inTreeNode button{
+	border: 0;
+    padding: 6px 18px;
+    color: #fff;
+    margin-right: 10px;
+    border-radius: 3px;
+}
+
+.jsonBtn{
+	background-color: #3498db;
+}
+
+.actionBtn{
+	background-color: #9b59b6;
+}
+
+#inputs_tree_main_controllers button, 
+.inTreeNode button{
+	background-color: #34495e;
+}
+
+.jsonBtn:hover, 
+.actionBtn:hover, 
+#inputs_tree_main_controllers button:hover, 
+.inTreeNode button:hover{
+	background-color: #000;
+}
